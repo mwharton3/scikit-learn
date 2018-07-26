@@ -1522,14 +1522,14 @@ cdef class BinaryTree:
                     # make sure the data will be freed when the numpy array is garbage collected
                     PyArray_ENABLEFLAGS(indices_npy[i], np.NPY_OWNDATA)
                     # make sure the data is not freed twice
-                    indices[i] = NULL
+                    #indices[i] = NULL
 
                     # make a new numpy array that wraps the existing data
                     distances_npy[i] = np.PyArray_SimpleNewFromData(1, &counts[i], np.NPY_DOUBLE, distances[i])
                     # make sure the data will be freed when the numpy array is garbage collected
                     PyArray_ENABLEFLAGS(distances_npy[i], np.NPY_OWNDATA)
                     # make sure the data is not freed twice
-                    distances[i] = NULL
+                    #distances[i] = NULL
 
                 # deflatten results
                 return (indices_npy.reshape(X.shape[:X.ndim - 1]),
@@ -1542,7 +1542,7 @@ cdef class BinaryTree:
                     # make sure the data will be freed when the numpy array is garbage collected
                     PyArray_ENABLEFLAGS(indices_npy[i], np.NPY_OWNDATA)
                     # make sure the data is not freed twice
-                    indices[i] = NULL
+                    #indices[i] = NULL
 
                 # deflatten results
                 return indices_npy.reshape(X.shape[:X.ndim - 1])
